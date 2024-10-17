@@ -1,0 +1,16 @@
+<!--pages/menu/index.wxml-->
+<view class="menu-page">
+  <view class="menu-header">
+    <image class="header-bg" src="/static/menu/bg.jpg" mode="top" alt=""/>
+  </view>
+  <view class="menu-body">
+    <view class="sider-menu">
+      <view class="menu-item {{activeSideIndex==index?'active':''}}" wx:key="label" wx:for="{{sideMenu}}" bind:tap="handleSelectMenu" data-item="{{item}}" data-index="{{index}}">
+        <view class="menu-label">{{item.label}}</view> 
+      </view>
+    </view>
+    <view class="class-menu">
+    dd
+    </view>
+  </view>
+</view>

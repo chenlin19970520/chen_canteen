@@ -13,7 +13,11 @@ export const formatTime = (date: Date) => {
   )
 }
 
-const formatNumber = (n: number) => {
+export const formatNumber = (n: number) => {
   const s = n.toString()
   return s[1] ? s : '0' + s
+}
+
+export const getDataSet = (e: any, key: string) => {
+  return e.currentTarget.dataset[key]
 }

@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/menu/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "小陈食堂",
     "navigationBarBackgroundColor": "#ffffff"
   },
   "style": "v2",

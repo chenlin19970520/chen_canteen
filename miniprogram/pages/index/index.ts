@@ -1,40 +1,32 @@
 // index.ts
 // 获取应用实例
 const app = getApp<IAppOption>()
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-
+import { getDataSet } from "../../utils/util"
 Component({
   data: {
-    motto: 'Hello World',
-    userInfo: {
-      avatarUrl: defaultAvatarUrl,
-      nickName: '',
-    },
-    hasUserInfo: false,
-    canIUseGetUserProfile: wx.canIUse('getUserProfile'),
-    canIUseNicknameComp: wx.canIUse('input.type.nickname'),
+    menus: [
+      {
+        name: "点",
+        path: '/pages/menu/index'
+      },
+      {
+        name: "单",
+        path: '/pages/menu/index'
+      }, {
+        name: "建",
+        path: '/pages/menu/index'
+      },
+      {
+        name: "设",
+        path: '/pages/menu/index'
+      }
+    ]
   },
   methods: {
-    // 事件处理函数
-    bindViewTap() {
+    handleJump(e: any) {
+      const menuItem = getDataSet(e, 'item');
       wx.navigateTo({
-        url: '../logs/logs',
-      })
-    },
-    onChooseAvatar(e: any) {
-      const { avatarUrl } = e.detail
-      const { nickName } = this.data.userInfo
-      this.setData({
-        "userInfo.avatarUrl": avatarUrl,
-        hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-      })
-    },
-    onInputChange(e: any) {
-      const nickName = e.detail.value
-      const { avatarUrl } = this.data.userInfo
-      this.setData({
-        "userInfo.nickName": nickName,
-        hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+        url: menuItem.path
       })
     },
     getUserProfile() {
