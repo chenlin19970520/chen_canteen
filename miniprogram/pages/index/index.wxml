@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="home-page">
+
+    <view class="home-menu">
+        <view class="menu-item">点餐</view>
+        <view class="menu-item">账单</view>
+        <view class="menu-item">建议</view>
+        <view class="menu-item">设置</view>
+    </view>
+</view>
