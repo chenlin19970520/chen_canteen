@@ -1,16 +1,54 @@
 <!--pages/menu/index.wxml-->
 <view class="menu-page">
   <view class="menu-header">
-    <image class="header-bg" src="/static/menu/bg.jpg" mode="top" alt=""/>
+    <image class="header-bg" src="/static/menu/bg.jpg" mode="top" alt="" />
   </view>
   <view class="menu-body">
     <view class="sider-menu">
       <view class="menu-item {{activeSideIndex==index?'active':''}}" wx:key="label" wx:for="{{sideMenu}}" bind:tap="handleSelectMenu" data-item="{{item}}" data-index="{{index}}">
-        <view class="menu-label">{{item.label}}</view> 
+        <view class="menu-label">{{item.label}}</view>
       </view>
     </view>
-    <view class="class-menu">
-      
-    </view>
+    <scroll-view class="class-menu" 	show-scrollbar="false" enhanced="true" binddragging="handleDragging" scroll-into-view="{{scrollIntoView}}" scroll-y="true">
+      <view class="class-menu_item" id="{{'class' + item.id}}" wx:for="{{sideMenu}}" wx:key="label">
+        <image class="class-menu_logo" src="/static/menu/bg.jpg" mode="{{index%2===0?'top':'bottom'}}" />
+        <view class="class-menu_body">
+          <view class="class-menu_header">
+            <view class="header-label">{{item.label}}</view>
+            <view class="header-desc">{{item.desc}}</view>
+          </view>
+          <view class="class-menu_it" wx:for="{{item.classMenu}}" wx:for-key='ix' wx:for-item="it" wx:key="label">
+            <image class="class-item_img" src="/static/menu/bg.jpg" mode="aspectFill" />
+            <view class="class-item_body">
+              <view class="class-item_label">
+                <view>{{it.label}}</view>
+                <view class="class-tags">
+                  <view class="class-tag_item">
+                    招牌
+                  </view>
+                </view>
+              </view>
+              <view class="class-item_desc">{{it.desc}}</view>
+              <view class="class-item_bottom">
+                <view class="bottom-price">
+                  <view class="current-price">
+                    <text class="price-unit">￥</text>
+                    <text class="current-price_value"> {{it.currentPrice}}</text>
+                  </view>
+                  <view class="original-price">
+                    <text>原价：</text>
+                    <text class="price-unit">￥</text>
+                    <text>{{it.originalPrice}}</text>
+                  </view>
+                </view>
+                <view>
+                  <image class="menu-add_icon" src="/static/menu/add.svg" mode="" />
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
   </view>
 </view>

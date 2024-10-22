@@ -1,5 +1,5 @@
 // pages/menu/index.ts
-import { getDataSet } from "../../utils/util"
+import { getDataSet, debounce } from "../../utils/util"
 Page({
 
   /**
@@ -8,16 +8,104 @@ Page({
   data: {
     sideMenu: [
       {
-        label: "炒菜"
+        label: "炒菜",
+        id: 1,
+        // desc: "喵喵喵喵喵",
+        classMenu: [
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+        ]
       }, {
-        label: "炖菜"
+        label: "炖菜",
+        id: 2,
+        classMenu: [
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+        ]
       }, {
-        label: "小吃"
+        label: "小吃",
+        id: 3,
+        classMenu: [
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+        ]
       }, {
-        label: "甜品"
+        label: "甜品",
+        id: 4,
+        classMenu: [
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+          {
+            label: "青椒炒鸡",
+            desc: "超级好吃的青椒炒鸡~~~",
+            currentPrice: 10,
+            originalPrice: 20,
+          },
+        ]
       }
     ],
     activeSideIndex: 0,
+    scrollIntoView: ''
+
+
   },
 
   /**
@@ -34,7 +122,38 @@ Page({
     const menuItem = getDataSet(e, 'item');
     const menuIndex = getDataSet(e, 'index');
     this.setData({
+      scrollIntoView: 'class' + menuItem.id,
       activeSideIndex: menuIndex
+    })
+  },
+
+  /**
+   * 获取元素菜单的高度
+   */
+  handleGetMenuHeight() {
+    this.data.sideMenu.forEach(item => {
+      wx.createSelectorQuery().select("#class" + item.id).boundingClientRect(function (rect) {
+        console.log(rect)
+        item.height = rect.height;
+      }).exec();
+    })
+  },
+
+  /**
+   * 监听右侧菜单滚动
+   */
+  handleDragging(e: any) {
+    const { scrollTop } = e.detail
+    let totalHeight = 0;
+    const findIndex = this.data.sideMenu.findIndex((item: any) => {
+      if (scrollTop >= totalHeight && scrollTop < (totalHeight + item.height)) {
+        return true;
+      } else {
+        totalHeight += item.height;
+      }
+    })
+    this.setData({
+      activeSideIndex: findIndex
     })
   },
 
@@ -42,7 +161,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    this.handleGetMenuHeight();
   },
 
   /**

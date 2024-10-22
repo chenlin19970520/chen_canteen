@@ -21,3 +21,13 @@ export const formatNumber = (n: number) => {
 export const getDataSet = (e: any, key: string) => {
   return e.currentTarget.dataset[key]
 }
+
+
+export const debounce = (func: Function, wait: number) => {
+  let timeout: any;
+  return function (...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
+  };
+}

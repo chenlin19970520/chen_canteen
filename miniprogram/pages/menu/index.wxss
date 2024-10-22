@@ -17,7 +17,7 @@
 .menu-body {
   margin-top: 20rpx;
   display: flex;
-  height:calc(100vh - 420rpx);
+  height: calc(100vh - 420rpx);
 }
 
 .sider-menu {
@@ -31,6 +31,7 @@
   text-align: center;
   position: relative;
 }
+
 .menu-item::before {
   content: "";
   position: absolute;
@@ -41,9 +42,10 @@
   background-color: var(--main-color);
   transition: all .25s ease-in;
 }
+
 .menu-item.active {
   position: relative;
-  background: linear-gradient(to right, #e5e5e5, #f5f5f5);
+  background: linear-gradient(to right, var(--gray3), var(--gray2));
   font-weight: bold
 }
 
@@ -51,6 +53,113 @@
   transform: translateX(20rpx);
 }
 
-.class-menu{
+.class-menu {
+  width: calc(100% - 220rpx);
+
+}
+
+.class-menu_item {
+  border-radius: 20rpx;
   background-color: white;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.class-menu_logo {
+  width: 100%;
+  height: 120rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  position: sticky;
+  top: 0;
+}
+
+.header-label {
+  font-weight: bold;
+}
+
+.header-desc {
+  font-size: 22rpx;
+  color: var(--sub-text-color);
+  margin-top: 10rpx;
+}
+
+.class-menu_body {
+  padding: 40rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.class-menu_it {
+  display: flex;
+  margin-top: 40rpx;
+}
+
+.class-item_img {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
+}
+
+.class-item_body {
+  width: calc(100% - 170rpx);
+}
+
+.class-item_label {
+  display: flex;
+}
+
+.class-tags {
+  display: flex;
+  align-items: center;
+}
+
+.class-tag_item {
+  background: linear-gradient(to right, var(--tag-bg-color2), var(--tag-bg-color1));
+  font-size: 20rpx;
+  color: var(--tag-color);
+  padding: 2rpx 8rpx;
+  box-sizing: border-box;
+  margin-left: 10rpx;
+}
+
+.class-item_desc {
+  color: var(--sub-text-color);
+  font-size: 20rpx;
+  margin-top: 8rpx;
+}
+
+.class-item_bottom {
+  display: flex;
+  align-items: center;
+  margin-top: 14rpx;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.bottom-price {}
+
+.current-price {
+  color: var(--price-color);
+  display: flex;
+  align-items: center;
+}
+
+.current-price_value {
+  font-weight: bold;
+}
+
+.original-price {
+  font-size: 20rpx;
+  color: var(--sub-text-color);
+  text-decoration: line-through;
+}
+
+.price-unit {
+  font-size: 20rpx;
+}
+
+.menu-add_icon {
+  width: 50rpx;
+  height: 50rpx;
 }
