@@ -1,7 +1,9 @@
 <!--index.wxml-->
 <view class="home-page">
-
+  <image class="page-bg" src="/static/menu/bg.jpg" mode="aspectFill" />
+  <view class="home-modal">
     <view class="home-menu">
-        <view class="menu-item" bind:tap="handleJump" data-item="{{item}}" wx:for="{{menus}}" wx:key="name">{{item.name}}</view>
+      <view class="menu-item" bind:tap="handleJump" data-item="{{item}}" wx:for="{{menus}}" wx:key="name">{{item.name}}</view>
     </view>
+  </view>
 </view>

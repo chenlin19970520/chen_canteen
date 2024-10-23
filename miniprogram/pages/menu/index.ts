@@ -1,5 +1,6 @@
 // pages/menu/index.ts
 import { getDataSet, debounce } from "../../utils/util"
+
 Page({
 
   /**
@@ -133,7 +134,6 @@ Page({
   handleGetMenuHeight() {
     this.data.sideMenu.forEach(item => {
       wx.createSelectorQuery().select("#class" + item.id).boundingClientRect(function (rect) {
-        console.log(rect)
         item.height = rect.height;
       }).exec();
     })

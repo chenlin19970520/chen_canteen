@@ -18,6 +18,11 @@ export const formatNumber = (n: number) => {
   return s[1] ? s : '0' + s
 }
 
+/**
+ * 获取数据
+ * @param e 点击元素
+ * @param key 数据字段名
+ */
 export const getDataSet = (e: any, key: string) => {
   return e.currentTarget.dataset[key]
 }
@@ -31,3 +36,9 @@ export const debounce = (func: Function, wait: number) => {
     timeout = setTimeout(() => func.apply(context, args), wait);
   };
 }
+
+export const getSystemInfo = () => {
+  // 获取设备信息
+	const systemInfomations = wx.getSystemInfoSync();
+}
+

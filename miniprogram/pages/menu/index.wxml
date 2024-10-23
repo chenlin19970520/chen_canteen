@@ -2,6 +2,7 @@
 <view class="menu-page">
   <view class="menu-header">
     <image class="header-bg" src="/static/menu/bg.jpg" mode="top" alt="" />
+    <BackBtn />
   </view>
   <view class="menu-body">
     <view class="sider-menu">

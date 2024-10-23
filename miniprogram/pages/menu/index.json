@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "BackBtn":"/components/back-btn/index"
+  },
   "navigationStyle":"custom"
 }

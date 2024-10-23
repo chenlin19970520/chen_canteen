@@ -1,0 +1,4 @@
+<!--components/back-btn/index.wxml-->
+<view class="top-back" bind:tap="handleBack">
+  <image class="top-back_img" src="/static/menu/back3.svg" mode="" />
+</view>

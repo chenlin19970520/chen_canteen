@@ -6,18 +6,18 @@ Component({
   data: {
     menus: [
       {
-        name: "点",
+        name: "点菜",
         path: '/pages/menu/index'
       },
       {
-        name: "单",
+        name: "点菜",
         path: '/pages/menu/index'
       }, {
-        name: "建",
+        name: "点菜",
         path: '/pages/menu/index'
       },
       {
-        name: "设",
+        name: "点菜",
         path: '/pages/menu/index'
       }
     ]
