@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "BackBtn":"/components/back-btn/index"
+    "BackBtn":"/components/back-btn/index",
+    "ShopCart":"/components/shop-cart/index"
   },
   "navigationStyle":"custom"
 }

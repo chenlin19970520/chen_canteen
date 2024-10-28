@@ -1,0 +1,17 @@
+<!--components/shop-cart/index.wxml-->
+<view class="shop-cart_box">
+  <view class="shop-cart">
+    <view class="cart-number_box">
+      <image class="cart-icon" src="/static/menu/shop-cart.svg" mode="aspectFit" />
+      <view class="cart-number">{{shopCartList.length}}</view>
+    </view>
+    <view class="cart-price_box">
+      <text class="price-label">预计到手：</text>
+      <text class="price-unit">￥</text>
+      <text class="price-value">{{totalPrice}}</text>
+    </view>
+    <view class="cart-btn">
+      去结算
+    </view>
+  </view>
+</view>

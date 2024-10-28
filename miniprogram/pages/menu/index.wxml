@@ -10,7 +10,7 @@
         <view class="menu-label">{{item.label}}</view>
       </view>
     </view>
-    <scroll-view class="class-menu" 	show-scrollbar="false" enhanced="true" binddragging="handleDragging" scroll-into-view="{{scrollIntoView}}" scroll-y="true">
+    <scroll-view class="class-menu" show-scrollbar="false" enhanced="true" binddragging="handleDragging" scroll-into-view="{{scrollIntoView}}" scroll-y="true">
       <view class="class-menu_item" id="{{'class' + item.id}}" wx:for="{{sideMenu}}" wx:key="label">
         <image class="class-menu_logo" src="/static/menu/bg.jpg" mode="{{index%2===0?'top':'bottom'}}" />
         <view class="class-menu_body">
@@ -19,7 +19,7 @@
             <view class="header-desc">{{item.desc}}</view>
           </view>
           <view class="class-menu_it" wx:for="{{item.classMenu}}" wx:for-key='ix' wx:for-item="it" wx:key="label">
-            <image class="class-item_img" src="/static/menu/bg.jpg" mode="aspectFill" />
+            <image class="class-item_img" src="{{it.img}}" mode="aspectFill" />
             <view class="class-item_body">
               <view class="class-item_label">
                 <view>{{it.label}}</view>
@@ -42,14 +42,29 @@
                     <text>{{it.originalPrice}}</text>
                   </view>
                 </view>
-                <view>
-                  <image class="menu-add_icon" src="/static/menu/add.svg" mode="" />
+                <view class="class-bottom_controls">
+                  <image bind:tap="handleAddCart" id="{{'add-'+it.id}}" data-item="{{it}}" class="menu-add_icon" src="/static/menu/add.svg" mode="" />
                 </view>
               </view>
             </view>
           </view>
+
+          <view class="class-menu_not" wx:if="{{!item.classMenu || !item.classMenu.length}}">
+            ~还没有添加菜品哟~
+          </view>
         </view>
       </view>
     </scroll-view>
+
+    <view style="top:{{animationTop+'px'}};opacity: {{animationTop>0?1:0}};" class="animate-box {{isAnimation?'start':''}}">
+      <view class="animate-item {{isAnimation?'start':''}}">1</view>
+    </view>
   </view>
+
+
+
+  <view id="shop-cart">
+    <ShopCart shopCartList="{{shopCartList}}" />
+  </view>
+
 </view>

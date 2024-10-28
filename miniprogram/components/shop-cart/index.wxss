@@ -1,0 +1,88 @@
+/* components/shop-cart/index.wxss */
+.shop-cart_box {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  height: calc(120rpx + constant(safe-area-inset-bottom));
+  /*兼容 iOS<11.2 */
+  height: calc(120rpx + env(safe-area-inset-bottom));
+  background-color: white;
+  z-index: 12;
+  box-shadow: 0rpx 10rpx 20rpx 2rpx var(--gray3);
+}
+
+.shop-cart {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  height: 100rpx;
+
+  /* border-radius: 90rpx; */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+}
+
+.cart-price_box {
+  flex: 1;
+  line-height: 80rpx;
+}
+
+.cart-btn {
+  width: 150rpx;
+  height: 100%;
+  background-color: var(--main-color);
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 95rpx;
+  text-align: center;
+}
+
+.cart-price_box .price-label {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.cart-price_box .price-unit {
+  color: var(--price-color);
+  font-size: 24rpx;
+}
+
+.cart-price_box .price-value {
+  color: var(--price-color);
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.cart-number_box {
+  width: 150rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cart-icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.cart-number {
+  position: absolute;
+  min-width: 30rpx;
+  height: 30rpx;
+  top: -10rpx;
+  right: 50rpx;
+  background-color: var(--main-color);
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 30rpx;
+  color: white;
+  font-size: bold;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}

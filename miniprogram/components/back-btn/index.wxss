@@ -2,8 +2,6 @@
 
 .top-back {
   position: absolute;
-  top: 100rpx;
-  left: 50rpx;
   width: 50rpx;
   height: 50rpx;
   border-radius: 100%;
@@ -12,7 +10,7 @@
   justify-content: center;
   background-color: white;
   box-shadow: 0rpx 0rpx 10rpx 0rpx rgba(0, 0, 0, 0.1);
-
+  /* transform: translateY(50%); */
   /* background-color: var(--main-color);
   box-shadow: 0rpx 0rpx 10rpx 0rpx rgba(0, 0, 0, 0.1); */
 }

@@ -75,6 +75,7 @@
   border-top-right-radius: 20rpx;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 .header-label {
@@ -87,6 +88,12 @@
   margin-top: 10rpx;
 }
 
+.class-menu {
+  padding-bottom: calc(120rpx + constant(safe-area-inset-bottom));
+  /*兼容 iOS<11.2 */
+  padding-bottom: calc(120rpx + env(safe-area-inset-bottom));
+}
+
 .class-menu_body {
   padding: 40rpx 20rpx;
   box-sizing: border-box;
@@ -95,6 +102,15 @@
 .class-menu_it {
   display: flex;
   margin-top: 40rpx;
+}
+
+.class-menu_not {
+  height: 150rpx;
+  line-height: 150rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--sub-text-color)
 }
 
 .class-item_img {
@@ -162,7 +178,59 @@
   font-size: 20rpx;
 }
 
+.class-bottom_controls {
+  position: relative;
+  width: 50rpx;
+  height: 50rpx;
+}
+
 .menu-add_icon {
   width: 50rpx;
   height: 50rpx;
+  position: absolute;
+  z-index: 9;
+  background-color: white;
+}
+
+.animate-box {
+  position: fixed;
+  right: 40rpx;
+  z-index: 11;
+}
+
+.animate-item {
+  position: absolute;
+  top: 7rpx;
+  right: 7rpx;
+  width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  background-color: var(--main-color);
+  border-radius: 100%;
+
+  color: white;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+@keyframes toTop {
+  to {
+    /* transform: translateY(800px); */
+    top: 100vh;
+  }
+}
+
+@keyframes toLeft {
+  to {
+    /* transform: translateX(-600rpx); */
+    right: 85vw;
+  }
+}
+
+.animate-box.start {
+  animation: toTop 0.75s cubic-bezier(0.175, -0.465, 0.355, 0.090) forwards;
+}
+
+.animate-item.start {
+  animation: toLeft 0.75s ease forwards;
 }

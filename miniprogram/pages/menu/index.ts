@@ -1,119 +1,38 @@
 // pages/menu/index.ts
+import { sideMenu } from "../../utils/menu";
 import { getDataSet, debounce } from "../../utils/util"
-
+import { getSideMenu } from "../../utils/menu"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    sideMenu: [
-      {
-        label: "炒菜",
-        id: 1,
-        // desc: "喵喵喵喵喵",
-        classMenu: [
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-        ]
-      }, {
-        label: "炖菜",
-        id: 2,
-        classMenu: [
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-        ]
-      }, {
-        label: "小吃",
-        id: 3,
-        classMenu: [
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-        ]
-      }, {
-        label: "甜品",
-        id: 4,
-        classMenu: [
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-          {
-            label: "青椒炒鸡",
-            desc: "超级好吃的青椒炒鸡~~~",
-            currentPrice: 10,
-            originalPrice: 20,
-          },
-        ]
-      }
-    ],
+    sideMenu: [],
     activeSideIndex: 0,
-    scrollIntoView: ''
+    scrollIntoView: '',
+    animationTop: -1,//元素的定位
+    isAnimation: false,//是否开启动画
 
-
+    isClick: true,//是否可以添加
+    shopCartList: <any>[],//购物车列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+    this.handleGetSideMenu();
+  },
 
+  /**
+   * 获取菜单
+   */
+  handleGetSideMenu() {
+    const menu = getSideMenu();
+    this.setData({
+      sideMenu: menu
+    })
   },
 
   /**
@@ -156,7 +75,36 @@ Page({
       activeSideIndex: findIndex
     })
   },
-
+  /**
+   * 添加购物车
+   */
+  handleAddCart(e) {
+    if (!this.data.isClick) {
+      return;
+    }
+    this.setData({
+      isClick: false
+    })
+    const classIt = getDataSet(e, 'item');
+    const that = this;
+    that.setData({
+      animationTop: -100,
+      isAnimation: false,
+    })
+    wx.createSelectorQuery().select("#add-" + classIt.id).boundingClientRect(function (rect) {
+      console.log(rect)
+      that.setData({
+        animationTop: rect.top,
+        isAnimation: classIt.id,
+      })
+      setTimeout(() => {
+        that.setData({
+          isClick: true,
+          shopCartList: [...that.data.shopCartList, classIt],
+        })
+      }, 750)
+    }).exec();
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,4 +1,6 @@
 // components/back-btn/index.ts
+
+import { getSystemInfo } from "../../utils/util"
 Component({
 
   /**
@@ -7,19 +9,30 @@ Component({
   properties: {
 
   },
+  pageLifetimes: {
+    show: function () {
+      const info = getSystemInfo();
+      this.setData({
+        btnTop: info.menuButtonTop + (info.menuButtonHeight - 50) / 2,
+        btnLeft: info.windowWidth - info.menuButtonRight
+      }, () => {
+        console.log(this.data.btnLeft, this.data.btnTop)
+      })
 
+    }
+  },
   /**
    * 组件的初始数据
    */
   data: {
-
+    btnTop: 0,
+    btnLeft: 0,
   },
-
   /**
    * 组件的方法列表
    */
   methods: {
-    handleBack() {
+    _handleBack() {
       const pages = getCurrentPages()
       if (pages.length >= 2) {
         wx.navigateBack()

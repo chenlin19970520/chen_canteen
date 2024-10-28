@@ -1,4 +1,4 @@
 <!--components/back-btn/index.wxml-->
-<view class="top-back" bind:tap="handleBack">
+<view class="top-back" bind:tap="_handleBack" style="left: {{btnLeft + 'rpx'}};top:{{btnTop+'rpx'}};">
   <image class="top-back_img" src="/static/menu/back3.svg" mode="" />
 </view>
