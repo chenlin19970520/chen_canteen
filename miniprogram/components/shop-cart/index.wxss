@@ -8,7 +8,7 @@
   /*兼容 iOS<11.2 */
   height: calc(120rpx + env(safe-area-inset-bottom));
   background-color: white;
-  z-index: 12;
+  z-index: 13;
   box-shadow: 0rpx 10rpx 20rpx 2rpx var(--gray3);
 }
 
@@ -32,7 +32,7 @@
 }
 
 .cart-btn {
-  width: 150rpx;
+  width: 200rpx;
   height: 100%;
   background-color: var(--main-color);
   color: white;
@@ -40,6 +40,10 @@
   font-weight: bold;
   line-height: 95rpx;
   text-align: center;
+}
+.cart-btn_disabled{
+  background-color: var(--sub-main-color);
+
 }
 
 .cart-price_box .price-label {

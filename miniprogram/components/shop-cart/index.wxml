@@ -1,7 +1,7 @@
 <!--components/shop-cart/index.wxml-->
 <view class="shop-cart_box">
   <view class="shop-cart">
-    <view class="cart-number_box">
+    <view class="cart-number_box" bind:tap="handleShowCart">
       <image class="cart-icon" src="/static/menu/shop-cart.svg" mode="aspectFit" />
       <view class="cart-number">{{shopCartList.length}}</view>
     </view>
@@ -10,8 +10,10 @@
       <text class="price-unit">￥</text>
       <text class="price-value">{{totalPrice}}</text>
     </view>
-    <view class="cart-btn">
-      去结算
+    <view class="cart-btn {{!shopCartList || !shopCartList.length?'cart-btn_disabled':''}}" >
+      {{!shopCartList || !shopCartList.length?'不可结算':'去结算'}}
     </view>
   </view>
+
 </view>
+<ShopCartModal show="{{showModal}}" list="{{shopCartList}}" />

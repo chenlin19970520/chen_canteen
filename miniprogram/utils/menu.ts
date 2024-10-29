@@ -18,12 +18,16 @@ export const sideMenu = [
     id: 4,
   },
   {
-    label: "凉菜",
+    label: "汤",
     id: 5,
   },
   {
-    label: "甜品",
+    label: "凉菜",
     id: 6,
+  },
+  {
+    label: "甜品",
+    id: 7,
   }
 ]
 
@@ -96,6 +100,78 @@ export const classMenu = [
     img: '/static/class/fqtddnl.jpg',
     id: 10007,
     menuId: 2,
+    tags: ['招牌']
+  },
+  {
+    label: "土豆豆角腊肉焖饭",
+    desc: "超级好吃的土豆豆角腊肉焖饭~~~",
+    currentPrice: 10,
+    originalPrice: 20,
+    img: '/static/class/mf.jpg',
+    id: 10008,
+    menuId: 3,
+    tags: ['招牌']
+  },
+  {
+    label: "蔬菜汤",
+    desc: "小白菜、豌豆尖、平菇~~~",
+    currentPrice: 10,
+    originalPrice: 20,
+    img: '/static/class/sct.jpg',
+    id: 10009,
+    menuId: 5,
+    tags: ['招牌']
+  },
+  {
+    label: "家常小面",
+    desc: "超级好吃的家常小面~~~",
+    currentPrice: 10,
+    originalPrice: 20,
+    img: '/static/class/xm.jpg',
+    id: 10010,
+    menuId: 4,
+    tags: ['招牌']
+  },
+  {
+    label: "爆炒大肥猪",
+    desc: "超级好吃的爆炒大肥猪~~~",
+    currentPrice: 10,
+    originalPrice: 20,
+    img: '/static/class/kad.jpg',
+    id: 10011,
+    menuId: 1,
+    tags: ['招牌']
+  },
+  {
+    label: "甜甜皮卡丘",
+    desc: "超级好吃的甜甜皮卡丘~~~",
+    currentPrice: 10,
+    originalPrice: 20,
+    img: '/static/class/pkq.jpg',
+    id: 10012,
+    menuId: 7,
+    tags: ['招牌']
+  },
+
+  {
+    label: "腌笃鲜",
+    desc: "超级好吃的腌笃鲜~~~",
+    currentPrice: 10,
+    originalPrice: 20,
+    img: '/static/class/ydx.jpg',
+    id: 10013,
+    menuId: 2,
+    tags: ['招牌']
+  },
+
+  {
+    label: "灯影牛肉丝",
+    desc: "超级好吃的灯影牛肉丝~~~",
+    currentPrice: 10,
+    originalPrice: 20,
+    img: '/static/class/xlnrs.jpg',
+    id: 10014,
+    menuId: 6,
     tags: ['招牌']
   },
 ]

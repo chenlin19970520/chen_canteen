@@ -1,0 +1,8 @@
+<!--components/shop-cart-Modal/index.wxml-->
+<view class="shop-cart_modal" wx:if="{{showModal}}">
+  <view class="modal-body {{showModal?'show':''}}">
+      <view class="body-header"></view>
+      <view class="body-list">
+      </view>
+  </view>
+</view>

@@ -19,7 +19,7 @@
             <view class="header-desc">{{item.desc}}</view>
           </view>
           <view class="class-menu_it" wx:for="{{item.classMenu}}" wx:for-key='ix' wx:for-item="it" wx:key="label">
-            <image class="class-item_img" src="{{it.img}}" mode="aspectFill" />
+            <image class="class-item_img" catch:tap="handlePreviewImg" data-item="{{it}}" src="{{it.img}}" mode="aspectFill" />
             <view class="class-item_body">
               <view class="class-item_label">
                 <view>{{it.label}}</view>

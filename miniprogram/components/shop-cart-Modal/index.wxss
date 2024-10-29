@@ -1,0 +1,30 @@
+/* components/shop-cart-Modal/index.wxss */
+.shop-cart_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 12;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+.modal-body {
+  position: absolute;
+  left: 0;
+  bottom: calc(120rpx + constant(safe-area-inset-bottom));
+  /*兼容 iOS<11.2 */
+  bottom: calc(120rpx + env(safe-area-inset-bottom));
+  background-color: white;
+  width: 100%;
+  height: 0rpx;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  transition: height .25s ease-in;
+}
+
+.modal-body.show {
+  height: 800rpx;
+}

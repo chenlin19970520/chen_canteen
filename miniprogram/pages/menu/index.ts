@@ -106,6 +106,15 @@ Page({
     }).exec();
   },
   /**
+   * 预览图片
+   */
+  handlePreviewImg(e) {
+    const classIt = getDataSet(e, 'item')
+    wx.previewImage({
+      urls: [classIt.img]
+    })
+  },
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {

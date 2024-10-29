@@ -16,6 +16,7 @@ Component({
    */
   data: {
     totalPrice: 0,
+    showModal: false,
   },
   observers: {
     'shopCartList': function (val: any) {
@@ -31,6 +32,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    handleShowCart() {
+      this.setData({
+        showModal: !this.data.showModal,
+      })
+    }
   }
 })

@@ -24,7 +24,7 @@
 }
 
 .sider-menu {
-  width: 200rpx;
+  width: 180rpx;
 }
 
 .menu-item {
@@ -57,7 +57,7 @@
 }
 
 .class-menu {
-  width: calc(100% - 220rpx);
+  width: calc(100% - 200rpx);
 
 }
 
@@ -114,14 +114,14 @@
 }
 
 .class-item_img {
-  width: 150rpx;
-  height: 150rpx;
+  width: 170rpx;
+  height: 170rpx;
   border-radius: 100%;
   margin-right: 20rpx;
 }
 
 .class-item_body {
-  width: calc(100% - 170rpx);
+  width: calc(100% - 190rpx);
 }
 
 .class-item_label {
