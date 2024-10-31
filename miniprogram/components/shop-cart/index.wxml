@@ -10,10 +10,12 @@
       <text class="price-unit">￥</text>
       <text class="price-value">{{totalPrice}}</text>
     </view>
-    <view class="cart-btn {{!shopCartList || !shopCartList.length?'cart-btn_disabled':''}}" >
+    <view class="cart-btn {{!shopCartList || !shopCartList.length?'cart-btn_disabled':''}}" bind:tap="handleToSettlement">
       {{!shopCartList || !shopCartList.length?'不可结算':'去结算'}}
     </view>
   </view>
 
 </view>
-<ShopCartModal show="{{showModal}}" list="{{shopCartList}}" />
+<ShopCartModal show="{{showModal}}" list="{{shopCartList}}" bindonModalBgClick="handleShowCart" bindonDeleteShop="handleDeleteShop"
+bindonClearShopCart="handleClearShop"
+ />

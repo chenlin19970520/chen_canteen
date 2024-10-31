@@ -36,6 +36,27 @@ Component({
       this.setData({
         showModal: !this.data.showModal,
       })
+    },
+    handleDeleteShop(data: any) {
+      this.triggerEvent('onDeleteShop', {
+        classIt: data.detail.classIt
+      })
+    },
+    handleClearShop() {
+      this.triggerEvent('onClearShopCart')
+    },
+    handleToSettlement() {
+      const list = this.data.shopCartList
+      if (!list || !list.length) {
+        return;
+      }
+      const listIds = this.data.shopCartList.map((item: any) => {
+        return item.id
+      })
+      wx.setStorageSync('shopCartList', listIds.join(","))
+      wx.navigateTo({
+        url:"/pages/order/index"
+      })
     }
   }
 })

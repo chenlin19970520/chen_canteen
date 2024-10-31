@@ -1,8 +1,49 @@
 <!--components/shop-cart-Modal/index.wxml-->
-<view class="shop-cart_modal" wx:if="{{showModal}}">
-  <view class="modal-body {{showModal?'show':''}}">
-      <view class="body-header"></view>
-      <view class="body-list">
+<view class="shop-cart_modal" catch:tap="handleCloseModal" wx:if="{{showModal}}">
+  <view catch:tap="handleClickBody" class="modal-body {{showBody?'show':'hidden'}}">
+    <view class="body-header">
+      <view class="header-total">
+        <text>当前选中</text>
+        <text class="header-total_value">{{list.length}}</text>
+        <text>件商品</text>
       </view>
+      <view class="header-clear" catch:tap="handleClear" wx:if="{{list&&list.length}}">清空购物车</view>
+    </view>
+    <view class="body-list">
+      <view class="class-menu_it" wx:for="{{list}}" wx:for-key='ix' wx:for-item="it" wx:key="label">
+        <image class="class-item_img" catch:tap="handlePreviewImg" data-item="{{it}}" src="{{it.img}}" mode="aspectFill" />
+        <view class="class-item_body">
+          <view class="class-item_label">
+            <view>{{it.label}}</view>
+            <view class="class-tags">
+              <view class="class-tag_item">
+                招牌
+              </view>
+            </view>
+          </view>
+          <view class="class-item_desc">{{it.desc}}</view>
+          <view class="class-item_bottom">
+            <view class="bottom-price">
+              <view class="current-price">
+                <text class="price-unit">￥</text>
+                <text class="current-price_value"> {{it.currentPrice}}</text>
+              </view>
+              <view class="original-price">
+                <text>原价：</text>
+                <text class="price-unit">￥</text>
+                <text>{{it.originalPrice}}</text>
+              </view>
+            </view>
+            <view class="class-bottom_controls">
+              <image bind:tap="handleAddReduce" id="{{'add-'+it.id}}" data-item="{{it}}" class="menu-add_icon" src="/static/menu/reduce.svg" mode="" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="class-menu_not" wx:if="{{!list || !list.length}}">
+        ~购物车空空如也~
+      </view>
+    </view>
   </view>
 </view>

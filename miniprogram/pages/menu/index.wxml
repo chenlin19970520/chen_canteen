@@ -64,7 +64,7 @@
 
 
   <view id="shop-cart">
-    <ShopCart shopCartList="{{shopCartList}}" />
+    <ShopCart shopCartList="{{shopCartList}}" bindonDeleteShop="handleDeleteShop" bindonClearShopCart="handleClearShop" />
   </view>
 
 </view>

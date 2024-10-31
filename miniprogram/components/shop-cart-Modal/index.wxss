@@ -22,9 +22,139 @@
   height: 0rpx;
   border-top-left-radius: 30rpx;
   border-top-right-radius: 30rpx;
-  transition: height .25s ease-in;
+
+}
+
+@keyframes show {
+  to {
+    height: 800rpx;
+  }
 }
 
 .modal-body.show {
-  height: 800rpx;
+  animation: show .25s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+
+.body-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  box-shadow: 0rpx 1rpx 10rpx 0rpx rgba(0, 0, 0, 0.1);
+  padding: 0rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.header-total {
+  font-size: 24rpx;
+}
+
+.header-total_value {
+  color: var(--main-color);
+}
+
+.header-clear {
+  font-size: 24rpx;
+  color: var(--sub-text-color);
+}
+
+.body-list {
+  padding:0 30rpx;
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: 700rpx;
+}
+
+.class-menu_it {
+  display: flex;
+  margin-top: 40rpx;
+}
+
+.class-menu_not {
+  height: 150rpx;
+  line-height: 150rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--sub-text-color)
+}
+
+.class-item_img {
+  width: 170rpx;
+  height: 170rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
+}
+
+.class-item_body {
+  width: calc(100% - 190rpx);
+}
+
+.class-item_label {
+  display: flex;
+}
+
+.class-tags {
+  display: flex;
+  align-items: center;
+}
+
+.class-tag_item {
+  background: linear-gradient(to right, var(--tag-bg-color2), var(--tag-bg-color1));
+  font-size: 20rpx;
+  color: var(--tag-color);
+  padding: 2rpx 8rpx;
+  box-sizing: border-box;
+  margin-left: 10rpx;
+}
+
+.class-item_desc {
+  color: var(--sub-text-color);
+  font-size: 20rpx;
+  margin-top: 8rpx;
+}
+
+.class-item_bottom {
+  display: flex;
+  align-items: center;
+  margin-top: 14rpx;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.bottom-price {}
+
+.current-price {
+  color: var(--price-color);
+  display: flex;
+  align-items: center;
+}
+
+.current-price_value {
+  font-weight: bold;
+}
+
+.original-price {
+  font-size: 20rpx;
+  color: var(--sub-text-color);
+  text-decoration: line-through;
+}
+
+.price-unit {
+  font-size: 20rpx;
+}
+
+.class-bottom_controls {
+  position: relative;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.menu-add_icon {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  z-index: 9;
+  background-color: white;
 }

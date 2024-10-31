@@ -115,6 +115,28 @@ Page({
     })
   },
   /**
+   * 购车删除
+   */
+  handleDeleteShop(e) {
+    const { classIt } = e.detail;
+    const carList = this.data.shopCartList
+    const findIndex = carList.findIndex((item: any) => {
+      return item.id === classIt.id;
+    })
+    carList.splice(findIndex, 1);
+    this.setData({
+      shopCartList: carList
+    })
+  },
+  /**
+   * 清空购物车
+   */
+  handleClearShop() {
+    this.setData({
+      shopCartList: []
+    })
+  },
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {

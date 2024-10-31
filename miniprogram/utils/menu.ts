@@ -190,3 +190,18 @@ export const getSideMenu = () => {
     }
   })
 }
+
+/**
+ * 通过id，获取购物车菜单
+ */
+export const getMenuOfId = (ids: string) => {
+  const idArr = ids.split(',');
+  return idArr.map((id: any) => {
+    const findItem = classMenu.find(classItem => {
+      return classItem.id === Number(id)
+    })
+    return {
+      ...findItem
+    }
+  })
+}
